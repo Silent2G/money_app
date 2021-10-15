@@ -1,5 +1,14 @@
 {
   "appTitle": "money_app",
+  "money_app": "MoneyApp",
+  "pay": "Pay",
+  "top_up": "Top up",
+  "recent_activity": "Recent Activity",
+  "today": "TODAY",
+  "yesterday": "YESTERDAY",
+  "to_who": "To who?",
+  "next": "Next",
+  "how_much": "How much?",
   "@appTitle": {
     "description": "The title of the application"
   }
