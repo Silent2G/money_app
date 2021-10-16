@@ -24,7 +24,7 @@ class BodyState extends State<Body> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 75,
+              height: 65,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -33,12 +33,12 @@ class BodyState extends State<Body> {
                 style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     fontStyle: FontStyle.normal,
-                    fontSize: 16,
+                    fontSize: 14,
                     color: Colors.black),
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 6,
             ),
             const Expanded(
               child: TransActionList(),

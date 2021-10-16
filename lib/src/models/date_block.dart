@@ -19,4 +19,15 @@ class DataBlock {
     return 'DataBlock{id: $id, dateTime: $dateTime, paymentList: '
         '$paymentList, topUpList: $topUpList}';
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DataBlock &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          dateTime == other.dateTime;
+
+  @override
+  int get hashCode => id.hashCode ^ dateTime.hashCode;
 }

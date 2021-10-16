@@ -26,7 +26,7 @@ class NavigationPanelState extends State<NavigationPanel> {
       child: ShadowWrap(
         borderRadius: 10,
         child: Container(
-          height: 110,
+          height: 100,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white,

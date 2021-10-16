@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../models/date_block.dart';
-import '../../models/payment.dart';
-import '../../models/top_up.dart';
-import '../../models/transaction.dart';
 import '../../core/state/transactions_controller.dart';
-import 'payment_item.dart';
-import 'top_up_item.dart';
+import '../../models/date_block.dart';
+import '../../models/transaction.dart';
+import 'date_block.dart';
 
 class TransActionList extends StatefulWidget {
   const TransActionList({
@@ -36,30 +33,17 @@ class TransActionListState extends State<TransActionList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        controller: ScrollController(),
         padding: EdgeInsets.zero,
-        itemCount: list.length,
+        itemCount: dataList.length,
         itemBuilder: (BuildContext context, int index) {
-          if (list.isEmpty) {
+          if (dataList.isEmpty) {
             return Container();
           }
 
-          Transaction transaction = list[index];
+          DataBlock dataBlock = dataList[index];
 
-          if (transaction is Payment) {
-            Payment payment = transaction;
-            return PaymentItem(
-              key: UniqueKey(),
-              title: payment.title,
-              sum: payment.sum,
-            );
-          } else {
-            TopUp topUp = transaction as TopUp;
-            return TopUpItem(
-              key: UniqueKey(),
-              title: topUp.title,
-              sum: topUp.sum,
-            );
-          }
+          return DateBlock(dataBlock: dataBlock);
         });
   }
 }

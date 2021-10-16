@@ -23,7 +23,7 @@ class TopUpItemState extends State<TopUpItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
         children: [
           Image.asset(
@@ -32,7 +32,7 @@ class TopUpItemState extends State<TopUpItem> {
             height: 30,
           ),
           const SizedBox(
-            width: 10,
+            width: 7,
           ),
           Expanded(
             child: Text(
@@ -40,14 +40,14 @@ class TopUpItemState extends State<TopUpItem> {
               textAlign: TextAlign.start,
               style: const TextStyle(
                   color: Colors.black,
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.w600),
             ),
           ),
           Text(
             "+${widget.sum}",
             style: TextStyle(
-                fontSize: 18,
+                fontSize: 14,
                 color: Theme.of(context).primaryColor,
                 fontStyle: FontStyle.normal,
                 fontWeight: FontWeight.w400),

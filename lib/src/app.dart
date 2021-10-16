@@ -4,7 +4,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 import '../routes_generator.dart';
+import '../setup_locator.dart';
 import 'constants/colors.dart';
+import 'core/services/navigation_service.dart';
 import 'get_controllers_setup.dart';
 import 'settings/settings_controller.dart';
 
@@ -23,6 +25,8 @@ class MoneyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Glue the SettingsController to the MaterialApp.
+
+    final navigatorService = getIt<NavigationService>();
     //
     // The AnimatedBuilder Widget listens to the SettingsController for changes.
     // Whenever the user updates their settings, the MaterialApp is rebuilt.
@@ -67,6 +71,8 @@ class MoneyApp extends StatelessWidget {
                 splashColor: kSplashColor),
             darkTheme: ThemeData.dark(),
             themeMode: settingsController.themeMode,
+
+            navigatorKey: navigatorService.key,
 
             // Define a function to handle named routes in order to support
             // Flutter web url navigation and deep linking.

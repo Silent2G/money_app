@@ -1,11 +1,13 @@
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import '../../models/top_up.dart';
-import '../../transactions/components/top_up_item.dart';
+
+import '../../../setup_locator.dart';
 import '../../models/payment.dart';
+import '../../models/top_up.dart';
 import '../../transactions/components/payment_item.dart';
+import '../../transactions/components/top_up_item.dart';
+import '../services/navigation_service.dart';
 
 class DateBlockController extends GetxController {
   String createDayOrDate(DateTime date) {
@@ -13,10 +15,12 @@ class DateBlockController extends GetxController {
     int currentDay = int.parse(DateFormat("D").format(currentDate));
     int day = int.parse(DateFormat("D").format(date));
 
+    final service = getIt<NavigationService>();
+
     if (currentDay == day) {
-      return "TODAY";
+      return AppLocalizations.of(service.key.currentState!.context)!.today;
     } else if (currentDay - 1 == day) {
-      return "YESTERDAY";
+      return AppLocalizations.of(service.key.currentState!.context)!.yesterday;
     } else {
       return DateFormat("d MMMM").format(date);
     }

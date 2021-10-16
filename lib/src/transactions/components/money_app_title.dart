@@ -14,7 +14,7 @@ class MoneyAppTitle extends StatelessWidget {
       AppLocalizations.of(context)!.money_app,
       style: const TextStyle(
           fontStyle: FontStyle.normal,
-          fontSize: 18,
+          fontSize: 16,
           fontWeight: FontWeight.w400,
           color: Colors.white),
     );

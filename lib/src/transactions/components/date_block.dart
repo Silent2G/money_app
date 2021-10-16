@@ -32,14 +32,24 @@ class DateBlockState extends State<DateBlock> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          controller.createDayOrDate(widget.dataBlock.dateTime),
-          style: const TextStyle(
-              fontStyle: FontStyle.normal,
-              fontSize: 28,
-              fontWeight: FontWeight.w600,
-              color: kBlackColor4),
+        const SizedBox(
+          height: 8,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
+            controller.createDayOrDate(widget.dataBlock.dateTime),
+            style: const TextStyle(
+                fontStyle: FontStyle.normal,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
+                color: kBlackColor4),
+          ),
+        ),
+        const SizedBox(
+          height: 6,
         ),
         Container(
           color: Colors.white,

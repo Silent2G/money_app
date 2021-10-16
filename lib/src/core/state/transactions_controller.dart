@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:intl/intl.dart';
 
 import '../../models/date_block.dart';
@@ -113,12 +114,19 @@ class TransactionsController extends GetxController {
         }
       });
 
+      paymentList.sort(
+          (a, b) => a.title.toUpperCase().compareTo(b.title.toUpperCase()));
+      topUpList.sort(
+          (a, b) => a.title.toUpperCase().compareTo(b.title.toUpperCase()));
+
       return DataBlock(
           id: entry.key,
           dateTime: list.first.dateTime,
           paymentList: paymentList,
           topUpList: topUpList);
     }).toList();
+
+    result.sort((a, b) => b.dateTime.compareTo(a.dateTime));
 
     return result;
   }

@@ -17,11 +17,13 @@ class AppScaffold extends StatelessWidget {
       body: Stack(
         children: [
           body,
-          const Padding(
-            padding: EdgeInsets.only(top: 50),
+          const SafeArea(
             child: Align(
               alignment: Alignment.topCenter,
-              child: MoneyAppTitle(),
+              child: Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: MoneyAppTitle(),
+              ),
             ),
           ),
         ],

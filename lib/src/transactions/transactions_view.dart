@@ -27,17 +27,17 @@ class TransactionsViewState extends State<TransactionsView> {
         Column(
           children: const [
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Header(),
             ),
             Expanded(
-              flex: 7,
+              flex: 10,
               child: Body(),
             )
           ],
         ),
         const Align(
-          alignment: Alignment(0, -0.32),
+          alignment: Alignment(0, -0.39),
           child: NavigationPanel(),
         )
       ],

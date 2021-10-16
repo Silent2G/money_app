@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'routes_generator.dart';
+import 'setup_locator.dart';
 import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
@@ -14,6 +15,8 @@ void main() async {
   // This prevents a sudden theme change when the app is first displayed.
   await settingsController.loadSettings();
   final routing = MoneyAppRoutesGenerator();
+
+  setupLocator();
 
   runApp(
     MoneyApp(
