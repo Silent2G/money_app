@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:money_app/src/core/state/date_block_controller.dart';
 
+import 'core/state/date_block_controller.dart';
+import 'core/state/keypad_controller.dart';
 import 'core/state/transactions_controller.dart';
 
 class GetControllersSetup extends StatelessWidget {
@@ -16,6 +17,7 @@ class GetControllersSetup extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.lazyPut(() => TransactionsController());
     Get.lazyPut(() => DateBlockController());
+    Get.lazyPut(() => KeyPadController());
     return body;
   }
 }
