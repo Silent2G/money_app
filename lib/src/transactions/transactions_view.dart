@@ -4,15 +4,11 @@ import '../scaffold.dart';
 import 'components/body.dart';
 import 'components/header.dart';
 import 'components/navigation_panel.dart';
-import '../core/state/transactions_controller.dart';
 
 class TransactionsView extends StatefulWidget {
   const TransactionsView({
     Key? key,
-    required this.controller,
   }) : super(key: key);
-
-  final TransactionsController controller;
 
   @override
   State createState() {

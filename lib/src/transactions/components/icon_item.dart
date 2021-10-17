@@ -27,6 +27,7 @@ class IconItemState extends State<IconItem> {
       padding: const EdgeInsets.only(bottom: 10),
       child: InkWell(
         onTap: () {
+          // Navigator.pushNamed(context, widget.route);
           Get.toNamed(widget.route);
         },
         child: Column(
@@ -44,7 +45,7 @@ class IconItemState extends State<IconItem> {
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
                   fontStyle: FontStyle.normal,
-                  fontSize: 15),
+                  fontSize: 13),
             )
           ],
         ),

@@ -1,26 +1,18 @@
 import 'package:flutter/widgets.dart';
 
-import '../core/state/pay_controller.dart';
-import '../pay/pay_view.dart';
-import '../core/state/top_up_controller.dart';
+import '../top_up/pay_view.dart';
 import '../top_up/top_up_view.dart';
-import '../core/state/transactions_controller.dart';
 import '../transactions/transactions_view.dart';
-
-
+import '../who/who_view.dart';
 
 const kTransactionsRoute = '/';
 const kPayRoute = '/pay';
 const kTopUpRoute = '/home';
+const kWhoRoute = '/who';
 
-final kRoutesMapping = <String, Widget>{
-  kTransactionsRoute: TransactionsView(
-    controller: TransactionsController(),
-  ),
-  kPayRoute: PayView(
-    controller: PayController(),
-  ),
-  kTopUpRoute: TopUpView(
-    controller: TopUpController(),
-  ),
+const kRoutesMapping = <String, Widget>{
+  kTransactionsRoute: TransactionsView(),
+  kPayRoute: PayView(),
+  kTopUpRoute: TopUpView(),
+  kWhoRoute: WhoView(),
 };

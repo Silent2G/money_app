@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'core/state/date_block_controller.dart';
 import 'core/state/keypad_controller.dart';
 import 'core/state/transactions_controller.dart';
+import 'core/state/who_controller.dart';
 
 class GetControllersSetup extends StatelessWidget {
   const GetControllersSetup({
@@ -18,6 +19,7 @@ class GetControllersSetup extends StatelessWidget {
     Get.lazyPut(() => TransactionsController());
     Get.lazyPut(() => DateBlockController());
     Get.lazyPut(() => KeyPadController());
+    Get.lazyPut(() => WhoController());
     return body;
   }
 }

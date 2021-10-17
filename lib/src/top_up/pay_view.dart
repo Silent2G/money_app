@@ -5,31 +5,29 @@ import 'package:get/get.dart';
 
 import '../components/back_wrap.dart';
 import '../components/color_button.dart';
+import '../constants/routing.dart';
 import '../core/state/keypad_controller.dart';
-import '../core/state/transactions_controller.dart';
 import '../scaffold.dart';
 import 'components/input.dart';
 import 'components/keypad.dart';
 
-class TopUpView extends StatefulWidget {
-  const TopUpView({
+class PayView extends StatefulWidget {
+  const PayView({
     Key? key,
   }) : super(key: key);
 
   @override
   State createState() {
-    return TopUpViewState();
+    return PayViewState();
   }
 }
 
-class TopUpViewState extends State<TopUpView> {
-  late KeyPadController keyController;
-  late TransactionsController trController;
+class PayViewState extends State<PayView> {
+  late KeyPadController controller;
 
   @override
   void initState() {
-    keyController = Get.find<KeyPadController>();
-    trController = Get.find<TransactionsController>();
+    controller = Get.find<KeyPadController>();
     super.initState();
   }
 
@@ -62,29 +60,17 @@ class TopUpViewState extends State<TopUpView> {
                 ],
               ),
               const Keypad(),
-              Obx(
-                () => ColorButton(
-                  title: AppLocalizations.of(context)!.top_up_,
-                  width: 200,
-                  fontSize: 18,
-                  borderRadius: 6,
-                  function: keyController.isFieldEmpty.value
-                      ? null
-                      : () {
-                          // create transaction
-                          trController
-                              .addTransaction(keyController.createTopUp());
-
-                          // update UI
-                          trController.updateBalance();
-                          trController.updateList();
-
-                          // clear text field
-                          keyController.clearField();
-                          Get.back();
-                        },
-                ),
-              )
+              Obx(() => ColorButton(
+                    title: AppLocalizations.of(context)!.next,
+                    width: 200,
+                    fontSize: 18,
+                    borderRadius: 6,
+                    function: controller.isFieldEmpty.value
+                        ? null
+                        : () {
+                            Get.toNamed(kWhoRoute);
+                          },
+                  ))
             ],
           ),
         ),

@@ -30,8 +30,8 @@ class PointItemState extends State<PointItem> {
       padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
       child: InkWell(
         onTap: () {
-          if (!controller.textEditingController.text.contains(".")) {
-            controller.textEditingController.text += ".";
+          if (controller.addPointCondition()) {
+            controller.changeTextData(".");
           }
         },
         child: Container(

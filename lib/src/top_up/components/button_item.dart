@@ -33,7 +33,7 @@ class ButtonItemState extends State<ButtonItem> {
       padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
       child: InkWell(
         onTap: () {
-          controller.textEditingController.text += widget.label;
+          controller.changeTextData(widget.label);
         },
         child: Container(
           constraints: const BoxConstraints(minHeight: 40.0, minWidth: 80.0),

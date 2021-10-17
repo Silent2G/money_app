@@ -39,6 +39,8 @@ class PaymentItemState extends State<PaymentItem> {
             child: Text(
               widget.title,
               textAlign: TextAlign.start,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                   color: Colors.black,
                   fontSize: 14,

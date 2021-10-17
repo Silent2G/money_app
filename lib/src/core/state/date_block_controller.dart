@@ -29,7 +29,10 @@ class DateBlockController extends GetxController {
   List<PaymentItem> getPaymentItems(List<Payment> list) {
     List<PaymentItem> result = [];
     list.forEach((element) {
-      result.add(PaymentItem(title: element.title, sum: element.sum));
+      result.add(PaymentItem(
+        title: element.title,
+        sum: element.sum.toString(),
+      ));
     });
     return result;
   }
@@ -37,7 +40,10 @@ class DateBlockController extends GetxController {
   List<TopUpItem> getTopUpItems(List<TopUp> list) {
     List<TopUpItem> result = [];
     list.forEach((element) {
-      result.add(TopUpItem(title: element.title, sum: element.sum));
+      result.add(TopUpItem(
+        title: element.title,
+        sum: element.sum.toString(),
+      ));
     });
     return result;
   }

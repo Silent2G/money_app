@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../core/state/transactions_controller.dart';
 import '../../models/date_block.dart';
-import '../../models/transaction.dart';
 import 'date_block.dart';
 
 class TransActionList extends StatefulWidget {
@@ -18,32 +17,26 @@ class TransActionList extends StatefulWidget {
 }
 
 class TransActionListState extends State<TransActionList> {
-  late TransactionsController controller;
-  List<Transaction> list = [];
-  List<DataBlock> dataList = [];
-
-  @override
-  void initState() {
-    controller = Get.find<TransactionsController>();
-    list = controller.transactionList;
-    dataList = controller.createDateBlockList(list);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        controller: ScrollController(),
-        padding: EdgeInsets.zero,
-        itemCount: dataList.length,
-        itemBuilder: (BuildContext context, int index) {
-          if (dataList.isEmpty) {
-            return Container();
-          }
+    return GetBuilder<TransactionsController>(
+      init: TransactionsController(),
+      builder: (TransactionsController controller) {
+        return ListView.builder(
+            controller: ScrollController(),
+            padding: EdgeInsets.zero,
+            itemCount: controller.dataList.length,
+            itemBuilder: (BuildContext context, int index) {
+              if (controller.dataList.isEmpty) {
+                return Container();
+              }
 
-          DataBlock dataBlock = dataList[index];
+              DataBlock dataBlock = controller.dataList[index];
 
-          return DateBlock(dataBlock: dataBlock);
-        });
+              return DateBlock(dataBlock: dataBlock);
+            });
+      },
+    );
   }
 }
