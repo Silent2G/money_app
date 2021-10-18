@@ -8,23 +8,49 @@ class KeyPadController extends GetxController {
   final textEditingController = TextEditingController(text: '');
 
   void changeTextData(String text) {
-    if (textEditingController.text.length < 10) {
+    if (!checkIsDecimalExist(textEditingController.text) &&
+        textEditingController.text.length < 10) {
       textEditingController.text += text;
-          // Util().getCurrencyFromString(textEditingController.text + text);
     }
-    isEmpty();
+    updateViewString();
+    empty();
     update();
+  }
+
+  bool checkIsDecimalExist(String text) {
+    if (text.contains(".")) {
+      int pointIndex = text.indexOf(".");
+      if ((text.length - pointIndex) > 2) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  RxString viewString = '£0.00'.obs;
+
+  void updateViewString() {
+    viewString.value = Util().getCurrencyFromString(textEditingController.text);
+  }
+
+  String checkString(String text) {
+    if (text.isNotEmpty) {
+      return text.substring(1);
+    }
+    return text;
   }
 
   RxBool isFieldEmpty = true.obs;
 
-  void isEmpty() {
+  void empty() {
     isFieldEmpty.value = textEditingController.text.isEmpty;
   }
 
   void clearField() {
     textEditingController.text = '';
-    isEmpty();
+    viewString.value = '£0.00';
+    empty();
   }
 
   bool addPointCondition() {
@@ -42,7 +68,8 @@ class KeyPadController extends GetxController {
       string = string.substring(0, string.length - 1);
       textEditingController.text = string;
     }
-    isEmpty();
+    updateViewString();
+    empty();
     update();
   }
 
