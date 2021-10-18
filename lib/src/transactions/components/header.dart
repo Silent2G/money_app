@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/state/transactions_controller.dart';
+import '../../core/utils/util.dart';
 
 class Header extends StatefulWidget {
   const Header({
@@ -29,14 +30,16 @@ class HeaderState extends State<Header> {
     return Container(
       color: Theme.of(context).primaryColor,
       child: Center(
-        child: Obx(() => Text(
-          controller.balance.value.toString(),
-          style: const TextStyle(
-              fontStyle: FontStyle.normal,
-              fontSize: 28,
-              fontWeight: FontWeight.w600,
-              color: Colors.white),
-        ),)
+        child: Obx(
+          () => Text(
+            Util().getCurrencyWithSymbol(controller.balance.value),
+            style: const TextStyle(
+                fontStyle: FontStyle.normal,
+                fontSize: 28,
+                fontWeight: FontWeight.w600,
+                color: Colors.white),
+          ),
+        ),
       ),
     );
   }

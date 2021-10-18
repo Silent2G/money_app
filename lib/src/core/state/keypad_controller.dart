@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +10,7 @@ class KeyPadController extends GetxController {
   void changeTextData(String text) {
     if (textEditingController.text.length < 10) {
       textEditingController.text += text;
+          // Util().getCurrencyFromString(textEditingController.text + text);
     }
     isEmpty();
     update();

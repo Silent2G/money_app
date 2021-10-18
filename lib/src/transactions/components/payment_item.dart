@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/assets_paths.dart';
+import '../../core/utils/util.dart';
 
 
 class PaymentItem extends StatefulWidget {
@@ -12,7 +13,7 @@ class PaymentItem extends StatefulWidget {
   }) : super(key: key);
 
   final String title;
-  final String sum;
+  final double sum;
 
   @override
   PaymentItemState createState() {
@@ -48,7 +49,7 @@ class PaymentItemState extends State<PaymentItem> {
             ),
           ),
           Text(
-            widget.sum,
+            Util().getCurrency(widget.sum),
             style: const TextStyle(
                 fontSize: 14,
                 color: Colors.black,

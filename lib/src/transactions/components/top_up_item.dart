@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constants/assets_paths.dart';
+import '../../core/state/transactions_controller.dart';
+import '../../core/utils/util.dart';
 
 class TopUpItem extends StatefulWidget {
   const TopUpItem({
@@ -11,7 +14,7 @@ class TopUpItem extends StatefulWidget {
   }) : super(key: key);
 
   final String title;
-  final String sum;
+  final double sum;
 
   @override
   TopUpItemState createState() {
@@ -20,6 +23,14 @@ class TopUpItem extends StatefulWidget {
 }
 
 class TopUpItemState extends State<TopUpItem> {
+  late TransactionsController controller;
+
+  @override
+  void initState() {
+    controller = Get.find<TransactionsController>();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,7 +56,7 @@ class TopUpItemState extends State<TopUpItem> {
             ),
           ),
           Text(
-            "+${widget.sum}",
+            "+${Util().getCurrency(widget.sum)}",
             style: TextStyle(
                 fontSize: 14,
                 color: Theme.of(context).primaryColor,

@@ -31,7 +31,7 @@ class DateBlockController extends GetxController {
     list.forEach((element) {
       result.add(PaymentItem(
         title: element.title,
-        sum: element.sum.toString(),
+        sum: element.sum,
       ));
     });
     return result;
@@ -42,7 +42,7 @@ class DateBlockController extends GetxController {
     list.forEach((element) {
       result.add(TopUpItem(
         title: element.title,
-        sum: element.sum.toString(),
+        sum: element.sum,
       ));
     });
     return result;
