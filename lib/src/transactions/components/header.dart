@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../components/custom_price_symbol.dart';
 import '../../core/state/transactions_controller.dart';
 import '../../core/utils/util.dart';
 
@@ -31,13 +32,15 @@ class HeaderState extends State<Header> {
       color: Theme.of(context).primaryColor,
       child: Center(
         child: Obx(
-          () => Text(
-            Util().getCurrencyWithSymbol(controller.balance.value),
-            style: const TextStyle(
-                fontStyle: FontStyle.normal,
-                fontSize: 28,
-                fontWeight: FontWeight.w600,
-                color: Colors.white),
+          () => CustomPriceSymbol(
+            text: Util().getCurrencyWithSymbol(
+              controller.balance.value,
+            ),
+            symbolFontSize: 24,
+            fontSizePrice: 42,
+            decimalFontSize: 24,
+            symbol: '£',
+            color: Colors.white,
           ),
         ),
       ),

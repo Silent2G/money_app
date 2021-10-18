@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:money2/money2.dart';
 
 import '../../models/date_block.dart';
 import '../../models/payment.dart';

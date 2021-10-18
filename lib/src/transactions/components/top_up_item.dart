@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:money_app/src/core/utils/util.dart';
 
+import '../../components/custom_price_symbol.dart';
 import '../../constants/assets_paths.dart';
 import '../../core/state/transactions_controller.dart';
-import '../../core/utils/util.dart';
 
 class TopUpItem extends StatefulWidget {
   const TopUpItem({
@@ -55,13 +56,22 @@ class TopUpItemState extends State<TopUpItem> {
                   fontWeight: FontWeight.w600),
             ),
           ),
-          Text(
-            "+${Util().getCurrency(widget.sum)}",
-            style: TextStyle(
-                fontSize: 14,
-                color: Theme.of(context).primaryColor,
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w400),
+          // Text(
+          //   "+${Util().getCurrency(widget.sum)}",
+          //   style: TextStyle(
+          //       fontSize: 14,
+          //       color: Theme.of(context).primaryColor,
+          //       fontStyle: FontStyle.normal,
+          //       fontWeight: FontWeight.w400),
+          // )
+          CustomPriceSymbol(
+            text: "+${Util().getCurrency(widget.sum)}",
+            symbolFontSize: 19,
+            fontSizePrice: 19,
+            decimalFontSize: 16,
+            symbol: "+",
+            color: Theme.of(context).primaryColor,
+            priceFontWeight: FontWeight.w400,
           )
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'components/custom_app_bar.dart';
 import 'transactions/components/money_app_title.dart';
 
 class AppScaffold extends StatelessWidget {
@@ -14,6 +15,7 @@ class AppScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(),
       body: Stack(
         children: [
           body,

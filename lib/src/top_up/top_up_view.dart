@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
+import 'package:money_app/src/constants/routing.dart';
 
 import '../components/back_wrap.dart';
 import '../components/color_button.dart';
@@ -81,7 +82,7 @@ class TopUpViewState extends State<TopUpView> {
 
                           // clear text field
                           keyController.clearField();
-                          Get.back();
+                          Get.offAllNamed(kTransactionsRoute);
                         },
                 ),
               )

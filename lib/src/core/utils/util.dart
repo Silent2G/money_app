@@ -44,4 +44,15 @@ class Util {
 
     return Money.from(num, euro).toString();
   }
+
+  bool checkIsDecimalExist(String text) {
+    if (text.contains(".")) {
+      int pointIndex = text.indexOf(".");
+      if ((text.length - pointIndex) > 2) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }

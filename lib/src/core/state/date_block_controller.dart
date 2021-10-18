@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -30,6 +31,7 @@ class DateBlockController extends GetxController {
     List<PaymentItem> result = [];
     list.forEach((element) {
       result.add(PaymentItem(
+        key: UniqueKey(),
         title: element.title,
         sum: element.sum,
       ));
@@ -41,6 +43,7 @@ class DateBlockController extends GetxController {
     List<TopUpItem> result = [];
     list.forEach((element) {
       result.add(TopUpItem(
+        key: UniqueKey(),
         title: element.title,
         sum: element.sum,
       ));

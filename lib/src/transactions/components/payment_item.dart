@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/custom_price.dart';
 import '../../constants/assets_paths.dart';
 import '../../core/utils/util.dart';
-
 
 class PaymentItem extends StatefulWidget {
   const PaymentItem({
@@ -48,14 +48,19 @@ class PaymentItemState extends State<PaymentItem> {
                   fontWeight: FontWeight.w600),
             ),
           ),
-          Text(
-            Util().getCurrency(widget.sum),
-            style: const TextStyle(
-                fontSize: 14,
-                color: Colors.black,
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w400),
-          )
+          CustomPrice(
+            key: UniqueKey(),
+            text: Util().getCurrency(widget.sum),
+            color: Colors.black,
+          ),
+          // Text(
+          //   Util().getCurrency(widget.sum),
+          //   style: const TextStyle(
+          //       fontSize: 14,
+          //       color: Colors.black,
+          //       fontStyle: FontStyle.normal,
+          //       fontWeight: FontWeight.w400),
+          // )
         ],
       ),
     );

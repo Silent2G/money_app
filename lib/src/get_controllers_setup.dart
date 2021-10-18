@@ -6,7 +6,7 @@ import 'core/state/keypad_controller.dart';
 import 'core/state/transactions_controller.dart';
 import 'core/state/who_controller.dart';
 
-class GetControllersSetup extends StatelessWidget {
+class GetControllersSetup extends StatefulWidget {
   const GetControllersSetup({
     Key? key,
     required this.body,
@@ -15,11 +15,23 @@ class GetControllersSetup extends StatelessWidget {
   final Widget body;
 
   @override
-  Widget build(BuildContext context) {
+  GetControllerSetupState createState() {
+    return GetControllerSetupState();
+  }
+}
+
+class GetControllerSetupState extends State<GetControllersSetup> {
+  @override
+  void initState() {
     Get.lazyPut(() => TransactionsController());
     Get.lazyPut(() => DateBlockController());
     Get.lazyPut(() => KeyPadController());
     Get.lazyPut(() => WhoController());
-    return body;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.body;
   }
 }
