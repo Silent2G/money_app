@@ -3,12 +3,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../../../setup_locator.dart';
 import '../../models/payment.dart';
 import '../../models/top_up.dart';
 import '../../transactions/components/payment_item.dart';
 import '../../transactions/components/top_up_item.dart';
-import '../services/navigation_service.dart';
+import 'navigation_service_controller.dart';
 
 class DateBlockController extends GetxController {
   String createDayOrDate(DateTime date) {
@@ -16,7 +15,7 @@ class DateBlockController extends GetxController {
     int currentDay = int.parse(DateFormat("D").format(currentDate));
     int day = int.parse(DateFormat("D").format(date));
 
-    final service = getIt<NavigationService>();
+    final service = Get.find<NavigationServiceController>();
 
     if (currentDay == day) {
       return AppLocalizations.of(service.key.currentState!.context)!.today;

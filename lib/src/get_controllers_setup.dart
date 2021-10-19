@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import 'core/state/navigation_service_controller.dart';
 import 'core/state/date_block_controller.dart';
 import 'core/state/keypad_controller.dart';
 import 'core/state/transactions_controller.dart';
@@ -27,6 +28,7 @@ class GetControllerSetupState extends State<GetControllersSetup> {
     Get.lazyPut(() => DateBlockController());
     Get.lazyPut(() => KeyPadController());
     Get.lazyPut(() => WhoController());
+    Get.lazyPut(() => NavigationServiceController());
     super.initState();
   }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'routes_generator.dart';
-import 'setup_locator.dart';
 import 'src/app.dart';
+import 'src/get_controllers_setup.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
 
@@ -16,12 +16,12 @@ void main() async {
   await settingsController.loadSettings();
   final routing = MoneyAppRoutesGenerator();
 
-  setupLocator();
-
   runApp(
-    MoneyApp(
-      settingsController: settingsController,
-      routesGenerator: routing,
+    GetControllersSetup(
+      body: MoneyApp(
+        settingsController: settingsController,
+        routesGenerator: routing,
+      ),
     ),
   );
 }
