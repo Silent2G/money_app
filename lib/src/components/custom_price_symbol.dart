@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../core/state/custom_price_controller.dart';
 
-class CustomPriceSymbol extends StatefulWidget {
+class CustomPriceSymbol extends StatelessWidget {
   const CustomPriceSymbol({
     Key? key,
     required this.text,
@@ -24,49 +24,36 @@ class CustomPriceSymbol extends StatefulWidget {
   final FontWeight? priceFontWeight;
 
   @override
-  CustomPriceSymbolState createState() {
-    return CustomPriceSymbolState();
-  }
-}
-
-class CustomPriceSymbolState extends State<CustomPriceSymbol> {
-  late CustomPriceController controller;
-
-  @override
-  void initState() {
-    controller = CustomPriceController();
-    controller.parsePriceSymbol(widget.text);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    CustomPriceController controller = CustomPriceController();
+    controller.parsePriceSymbol(text);
     return RichText(
       text: TextSpan(
         children: <TextSpan>[
           TextSpan(
-            text: widget.symbol,
+            text: symbol,
             style: TextStyle(
-                fontSize: widget.symbolFontSize,
+                fontSize: symbolFontSize,
                 fontWeight: FontWeight.w400,
-                color: widget.color,
+                color: color,
                 fontStyle: FontStyle.normal),
           ),
           TextSpan(
             text: controller.price.value,
             style: TextStyle(
-                fontSize: widget.fontSizePrice,
-                fontWeight: widget.priceFontWeight ?? FontWeight.w600,
-                color: widget.color,
+                fontSize: fontSizePrice,
+                fontWeight: priceFontWeight ?? FontWeight.w600,
+                color: color,
                 fontStyle: FontStyle.normal),
           ),
           TextSpan(
-              text: ".${controller.decimal.value}",
-              style: TextStyle(
-                  fontSize: widget.decimalFontSize,
-                  fontWeight: FontWeight.w400,
-                  color: widget.color,
-                  fontStyle: FontStyle.normal)),
+            text: ".${controller.decimal.value}",
+            style: TextStyle(
+                fontSize: decimalFontSize,
+                fontWeight: FontWeight.w400,
+                color: color,
+                fontStyle: FontStyle.normal),
+          ),
         ],
       ),
     );

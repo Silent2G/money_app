@@ -32,24 +32,15 @@ class InputState extends State<Input> {
       child: SizedBox(
         height: 60,
         child: Obx(
-          () => Text(
-            controller.viewString.value,
-            style: const TextStyle(
-              fontSize: 42,
-              color: Colors.white,
-            ),
+          () => CustomPriceSymbol(
+            text: controller.viewString.value,
+            symbolFontSize: 24,
+            fontSizePrice: 48,
+            decimalFontSize: 24,
+            symbol: "£",
+            color: Colors.white,
           ),
         ),
-        // child: Obx(
-        //   () => CustomPriceSymbol(
-        //     text: controller.viewString.value,
-        //     symbolFontSize: 24,
-        //     fontSizePrice: 48,
-        //     decimalFontSize: 24,
-        //     symbol: "£",
-        //     color: Colors.white,
-        //   ),
-        // ),
       ),
     );
   }

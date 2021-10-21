@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
-import 'package:money_app/src/constants/routing.dart';
 
 import '../components/back_wrap.dart';
 import '../components/color_button.dart';
+import '../constants/routing.dart';
 import '../core/state/keypad_controller.dart';
 import '../core/state/transactions_controller.dart';
 import '../scaffold.dart';
