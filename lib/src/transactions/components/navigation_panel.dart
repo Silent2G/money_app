@@ -7,18 +7,11 @@ import '../../constants/assets_paths.dart';
 import '../../constants/routing.dart';
 import 'icon_item.dart';
 
-class NavigationPanel extends StatefulWidget {
+class NavigationPanel extends StatelessWidget {
   const NavigationPanel({
     Key? key,
   }) : super(key: key);
 
-  @override
-  NavigationPanelState createState() {
-    return NavigationPanelState();
-  }
-}
-
-class NavigationPanelState extends State<NavigationPanel> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,9 +33,9 @@ class NavigationPanelState extends State<NavigationPanel> {
                 route: kPayRoute,
               ),
               IconItem(
-                imagePath: kWalletPath,
-                title: AppLocalizations.of(context)!.top_up,
-                route: kTopUpRoute
+                  imagePath: kWalletPath,
+                  title: AppLocalizations.of(context)!.top_up,
+                  route: kTopUpRoute
               )
             ],
           ),

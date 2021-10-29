@@ -5,18 +5,11 @@ import 'components/body.dart';
 import 'components/header.dart';
 import 'components/navigation_panel.dart';
 
-class TransactionsView extends StatefulWidget {
+class TransactionsView extends StatelessWidget {
   const TransactionsView({
     Key? key,
   }) : super(key: key);
 
-  @override
-  State createState() {
-    return TransactionsViewState();
-  }
-}
-
-class TransactionsViewState extends State<TransactionsView> {
   Widget getBody() {
     final body = Stack(
       children: [

@@ -5,18 +5,10 @@ import '../../core/state/transactions_controller.dart';
 import '../../models/date_block.dart';
 import 'date_block.dart';
 
-class TransActionList extends StatefulWidget {
+class TransActionList extends StatelessWidget {
   const TransActionList({
     Key? key,
   }) : super(key: key);
-
-  @override
-  TransActionListState createState() {
-    return TransActionListState();
-  }
-}
-
-class TransActionListState extends State<TransActionList> {
 
   @override
   Widget build(BuildContext context) {

@@ -27,7 +27,6 @@ class IconItemState extends State<IconItem> {
       padding: const EdgeInsets.only(bottom: 10),
       child: InkWell(
         onTap: () {
-          // Navigator.pushNamed(context, widget.route);
           Get.toNamed(widget.route);
         },
         child: Column(

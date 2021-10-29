@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import '../constants/assets_paths.dart';
 
-class BackWrap extends StatefulWidget {
+class BackWrap extends StatelessWidget {
   const BackWrap({
     Key? key,
     required this.body,
@@ -14,17 +14,10 @@ class BackWrap extends StatefulWidget {
   final Widget body;
 
   @override
-  BackWrapState createState() {
-    return BackWrapState();
-  }
-}
-
-class BackWrapState extends State<BackWrap> {
-  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        widget.body,
+        body,
         Align(
           alignment: Alignment.topRight,
           child: SafeArea(

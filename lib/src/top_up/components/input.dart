@@ -5,25 +5,10 @@ import 'package:get/get.dart';
 import '../../components/custom_price_symbol.dart';
 import '../../core/state/keypad_controller.dart';
 
-class Input extends StatefulWidget {
+class Input extends GetView<KeyPadController> {
   const Input({
     Key? key,
   }) : super(key: key);
-
-  @override
-  InputState createState() {
-    return InputState();
-  }
-}
-
-class InputState extends State<Input> {
-  late KeyPadController controller;
-
-  @override
-  void initState() {
-    controller = Get.find<KeyPadController>();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +17,7 @@ class InputState extends State<Input> {
       child: SizedBox(
         height: 60,
         child: Obx(
-          () => CustomPriceSymbol(
+              () => CustomPriceSymbol(
             text: controller.viewString.value,
             symbolFontSize: 24,
             fontSizePrice: 48,

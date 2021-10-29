@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../core/state/keypad_controller.dart';
 
-class ButtonItem extends StatefulWidget {
+class ButtonItem extends GetView<KeyPadController> {
   const ButtonItem({
     Key? key,
     required this.label,
@@ -13,33 +13,18 @@ class ButtonItem extends StatefulWidget {
   final String label;
 
   @override
-  ButtonItemState createState() {
-    return ButtonItemState();
-  }
-}
-
-class ButtonItemState extends State<ButtonItem> {
-  late KeyPadController controller;
-
-  @override
-  void initState() {
-    controller = Get.find<KeyPadController>();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
       child: InkWell(
         onTap: () {
-          controller.changeTextData(widget.label);
+          controller.changeTextData(label);
         },
         child: Container(
           constraints: const BoxConstraints(minHeight: 40.0, minWidth: 80.0),
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 4.0),
           child: Text(
-            widget.label.toString(),
+            label.toString(),
             style: const TextStyle(
                 fontSize: 28.0,
                 color: Colors.white,

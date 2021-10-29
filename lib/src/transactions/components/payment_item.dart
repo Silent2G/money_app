@@ -53,14 +53,6 @@ class PaymentItemState extends State<PaymentItem> {
             text: Util().getCurrency(widget.sum),
             color: Colors.black,
           ),
-          // Text(
-          //   Util().getCurrency(widget.sum),
-          //   style: const TextStyle(
-          //       fontSize: 14,
-          //       color: Colors.black,
-          //       fontStyle: FontStyle.normal,
-          //       fontWeight: FontWeight.w400),
-          // )
         ],
       ),
     );

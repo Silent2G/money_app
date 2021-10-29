@@ -7,7 +7,7 @@ import '../../constants/assets_paths.dart';
 import '../../core/state/transactions_controller.dart';
 import '../../core/utils/util.dart';
 
-class TopUpItem extends StatefulWidget {
+class TopUpItem extends GetView<TransactionsController> {
   const TopUpItem({
     Key? key,
     required this.title,
@@ -16,21 +16,6 @@ class TopUpItem extends StatefulWidget {
 
   final String title;
   final double sum;
-
-  @override
-  TopUpItemState createState() {
-    return TopUpItemState();
-  }
-}
-
-class TopUpItemState extends State<TopUpItem> {
-  late TransactionsController controller;
-
-  @override
-  void initState() {
-    controller = Get.find<TransactionsController>();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +33,7 @@ class TopUpItemState extends State<TopUpItem> {
           ),
           Expanded(
             child: Text(
-              widget.title,
+              title,
               textAlign: TextAlign.start,
               style: const TextStyle(
                   color: Colors.black,
@@ -57,7 +42,7 @@ class TopUpItemState extends State<TopUpItem> {
             ),
           ),
           CustomPriceSymbol(
-            text: "+${Util().getCurrency(widget.sum)}",
+            text: "+${Util().getCurrency(sum)}",
             symbolFontSize: 19,
             fontSizePrice: 19,
             decimalFontSize: 16,

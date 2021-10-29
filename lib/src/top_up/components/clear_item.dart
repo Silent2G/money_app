@@ -4,25 +4,10 @@ import 'package:get/get.dart';
 
 import '../../core/state/keypad_controller.dart';
 
-class ClearItem extends StatefulWidget {
+class ClearItem extends GetView<KeyPadController> {
   const ClearItem({
     Key? key,
   }) : super(key: key);
-
-  @override
-  ClearItemState createState() {
-    return ClearItemState();
-  }
-}
-
-class ClearItemState extends State<ClearItem> {
-  late KeyPadController controller;
-
-  @override
-  void initState() {
-    controller = Get.find<KeyPadController>();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

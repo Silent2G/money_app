@@ -11,25 +11,10 @@ import '../scaffold.dart';
 import 'components/input.dart';
 import 'components/keypad.dart';
 
-class PayView extends StatefulWidget {
+class PayView extends GetView<KeyPadController> {
   const PayView({
     Key? key,
   }) : super(key: key);
-
-  @override
-  State createState() {
-    return PayViewState();
-  }
-}
-
-class PayViewState extends State<PayView> {
-  late KeyPadController controller;
-
-  @override
-  void initState() {
-    controller = Get.find<KeyPadController>();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,17 +45,19 @@ class PayViewState extends State<PayView> {
                 ],
               ),
               const Keypad(),
-              Obx(() => ColorButton(
-                    title: AppLocalizations.of(context)!.next,
-                    width: 200,
-                    fontSize: 18,
-                    borderRadius: 6,
-                    function: controller.isFieldEmpty.value
-                        ? null
-                        : () {
-                            Get.toNamed(kWhoRoute);
-                          },
-                  ))
+              Obx(
+                () => ColorButton(
+                  title: AppLocalizations.of(context)!.next,
+                  width: 200,
+                  fontSize: 18,
+                  borderRadius: 6,
+                  function: controller.isFieldEmpty.value
+                      ? null
+                      : () {
+                          Get.toNamed(kWhoRoute);
+                        },
+                ),
+              )
             ],
           ),
         ),

@@ -6,28 +6,13 @@ import '../../constants/colors.dart';
 import '../../core/state/date_block_controller.dart';
 import '../../models/date_block.dart';
 
-class DateBlock extends StatefulWidget {
+class DateBlock extends GetView<DateBlockController> {
   const DateBlock({
     Key? key,
     required this.dataBlock,
   }) : super(key: key);
 
   final DataBlock dataBlock;
-
-  @override
-  DateBlockState createState() {
-    return DateBlockState();
-  }
-}
-
-class DateBlockState extends State<DateBlock> {
-  late DateBlockController controller;
-
-  @override
-  void initState() {
-    controller = Get.find<DateBlockController>();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +25,7 @@ class DateBlockState extends State<DateBlock> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            controller.createDayOrDate(widget.dataBlock.dateTime),
+            controller.createDayOrDate(dataBlock.dateTime),
             style: const TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 11,
@@ -54,13 +39,13 @@ class DateBlockState extends State<DateBlock> {
         Container(
           color: Colors.white,
           child: Column(
-            children: controller.getPaymentItems(widget.dataBlock.paymentList),
+            children: controller.getPaymentItems(dataBlock.paymentList),
           ),
         ),
         Container(
           color: Colors.white,
           child: Column(
-            children: controller.getTopUpItems(widget.dataBlock.topUpList),
+            children: controller.getTopUpItems(dataBlock.topUpList),
           ),
         )
       ],

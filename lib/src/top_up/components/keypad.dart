@@ -4,18 +4,11 @@ import 'package:flutter/material.dart';
 import 'action_row.dart';
 import 'buttons_row.dart';
 
-class Keypad extends StatefulWidget {
+class Keypad extends StatelessWidget {
   const Keypad({
     Key? key,
   }) : super(key: key);
 
-  @override
-  KeypadState createState() {
-    return KeypadState();
-  }
-}
-
-class KeypadState extends State<Keypad> {
   @override
   Widget build(BuildContext context) {
     return Column(

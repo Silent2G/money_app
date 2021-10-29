@@ -4,18 +4,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'transactions_list.dart';
 
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   const Body({
     Key? key,
   }) : super(key: key);
 
-  @override
-  BodyState createState() {
-    return BodyState();
-  }
-}
-
-class BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,3 +41,4 @@ class BodyState extends State<Body> {
     );
   }
 }
+

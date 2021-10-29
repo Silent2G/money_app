@@ -5,18 +5,11 @@ import 'button_item.dart';
 import 'clear_item.dart';
 import 'point_item.dart';
 
-class ActionRow extends StatefulWidget {
+class ActionRow extends StatelessWidget {
   const ActionRow({
     Key? key,
   }) : super(key: key);
 
-  @override
-  ActionRowState createState() {
-    return ActionRowState();
-  }
-}
-
-class ActionRowState extends State<ActionRow> {
   @override
   Widget build(BuildContext context) {
     return Row(

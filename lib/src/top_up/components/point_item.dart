@@ -4,25 +4,10 @@ import 'package:get/get.dart';
 
 import '../../core/state/keypad_controller.dart';
 
-class PointItem extends StatefulWidget {
+class PointItem extends GetView<KeyPadController> {
   const PointItem({
     Key? key,
   }) : super(key: key);
-
-  @override
-  PointItemState createState() {
-    return PointItemState();
-  }
-}
-
-class PointItemState extends State<PointItem> {
-  late KeyPadController controller;
-
-  @override
-  void initState() {
-    controller = Get.find<KeyPadController>();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
